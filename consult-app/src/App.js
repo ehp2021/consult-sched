@@ -6,6 +6,7 @@ import Login from './Login';
 import Register from './Register';
 import Profile from './Profile';
 import {AuthProvider} from './Contexts/Authcontext';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
@@ -15,10 +16,17 @@ function App() {
           <Navbar />
           <AuthProvider> 
             <Routes>   
-              <Route exact path="/home" element={<Home />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/profile" element={<Profile />} /> 
-              <Route exact path="/register" element={<Register />} /> 
+              <Route path="/home"
+                  element={
+                    <PrivateRoute>
+                      <Home />
+                    </PrivateRoute>
+                  }
+              />
+
+              <Route path="/login" element={<Login />} />
+              <Route path="/profile" element={<Profile />} /> 
+              <Route path="/register" element={<Register />} /> 
             </Routes>
           </AuthProvider>
         </div>

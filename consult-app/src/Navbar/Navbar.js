@@ -22,7 +22,7 @@ export default function Navbar() {
                 </Link>
 
                 <Link to="/login">
-                    <li >Login</li>
+                    <li >Logout</li>
                 </Link>
             </ul>
         </div>
