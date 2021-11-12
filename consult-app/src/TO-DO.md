@@ -49,6 +49,7 @@ doctor API: https://clinicaltables.nlm.nih.gov/apidoc/npi_org/v3/doc.html
 drugs API: https://dailymed.nlm.nih.gov/dailymed/app-support-web-services.cfm 
 Drugs API: https://open.fda.gov/apis/drug/ndc/
 Database of doctors may be a hardcoded JSON file I make - TBD
+rxnow: https://www.nlm.nih.gov/research/umls/rxnorm/overview.html 
 
 NOT USING:
 Database of diseases: https://impact.dbmi.columbia.edu/~friedma/Projects/DiseaseSymptomKB/index.html

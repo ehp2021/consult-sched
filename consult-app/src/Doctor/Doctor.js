@@ -16,7 +16,7 @@ export default function Doctor(props) {
               </div>
       
               <div className="doctor-bio-left-info"> 
-                <h2>Dr. {name} {last_name}</h2>
+                <h2>Dr. {name} {last_name}, MD</h2>
                 <div>Main Specialty: {specialty_1}</div>
                 <div>Secondary Specialty:{specialty_2}</div>
                 <div>Medical School:{medical_school}</div>

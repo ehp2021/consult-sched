@@ -3,28 +3,32 @@
     padding: 10px;
 }
 
-.doctor-card-left {
+.doctor-bio-left {
     display: flex;
     flex-direction: row;
-    justify-content: center;
- }
-
- img {
-     border-radius: 90px;
-     
+    border: 1px solid black;
+    border-radius: 10px;
  }
 
 
 .doctor-bio-left-photo {
-    height: 50%;
+    size-adjust: 100%;
+    padding: 15px;
 }
 
 .doctor-bio-left-photo img {
-    width: 50%;
+    width: 250px;
+    border-radius: 10px;
 }
 
 .drug-list {
     text-indent: 20px;
+    margin-top: 5px;
 }
 
+.doctor-sched-right{
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
 
