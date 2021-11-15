@@ -1,25 +1,15 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
-console.log(process.env)
-
 const app = firebase.initializeApp({
-    // apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    // authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    // projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    // storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    // messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    // appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    // measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 
     apiKey: "AIzaSyC4ldHMA7UsVmy35V-8zZFTodUvG-Iu8u4",
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
-
+    authDomain: "coda-app-6ed7d.firebaseapp.com",
+    projectId: "coda-app-6ed7d",
+    storageBucket: "coda-app-6ed7d",
+    messagingSenderId: "152579971008",
+    appId: "1:152579971008:web:ee9b70b4e84bcd44749a25",
+    measurementId: "G-EB2KK0LM9C"
 });
 
 const auth = firebase.auth()

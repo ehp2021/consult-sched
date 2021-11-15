@@ -8,6 +8,10 @@
     flex-direction: row;
     border: 1px solid black;
     border-radius: 10px;
+    width: 55%;
+    background: white;
+    box-shadow: 8px 10px rgba(0,0,0,.15);
+    transition: all .3s ease;
  }
 
 
@@ -30,5 +34,18 @@
     margin-left: 10px;
     border: 1px solid black;
     border-radius: 10px;
+    width: 45%;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 8px 10px rgba(0,0,0,.15);
+    transition: all .3s ease;
+}
+
+.doctor-sched-times {
+    margin-bottom: 5px;
+}
+
+.drug-list-title {
+    margin-top: 5px;
 }
 

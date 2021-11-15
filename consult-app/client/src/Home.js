@@ -12,10 +12,9 @@ export default function Home() {
                 <DoctorList />
             </div>
 
-            <div className="home-right"> 
-                {/* news box */}
-                News API box or highlight a random "expert"?
-            </div>
+            {/* <div className="home-right"> 
+                <Search />
+            </div> */}
         </div>
     )
 }

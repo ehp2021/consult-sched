@@ -5,7 +5,6 @@ import Home from './Home';
 import Login from './Login';
 import Register from './Register';
 import Profile from './Profile';
-import Search from './Search/Search';
 import {AuthProvider} from './Contexts/Authcontext';
 import PrivateRoute from './PrivateRoute';
 
@@ -24,7 +23,6 @@ function App() {
                     </PrivateRoute>
                   }
               />
-              <Route path="/search" element={<Search />} /> 
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} /> 
               <Route path="/register" element={<Register />} /> 

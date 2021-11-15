@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import {Card, Button, Alert } from 'react-bootstrap';
 import {useAuth} from './Contexts/Authcontext';
 import { useNavigate } from 'react-router-dom';
+// import Doctor from './Doctor/Doctor';
 
 export default function Profile() {
+
     const [error, setError]=useState("");
     const { currentUser, logout} = useAuth();
     const navigate = useNavigate()
@@ -29,11 +31,6 @@ export default function Profile() {
                         <h2>Profile</h2>
                         {error && <Alert variant="danger">{error}</Alert>}
                         <strong>Email:</strong> {currentUser.email}
-
-                        <div className="past-consults">Past Consultations</div>
-
-                        {/* show a short DoctorList here */}
-
                     </div>
 
                 </Card.Body>
