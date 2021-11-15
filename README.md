@@ -23,4 +23,4 @@ Choose the core feature that most defines your app and you’ll start to tackle 
 
 Users will be able to search for a doctor who can speak on their desired topic and schedule a 30 minute zoom call with them online
 
-![screenshot]('./screenshot.png')
+![screenshot](https://github.com/ehp2021/consult-sched/blob/main/screenshot.png)
