@@ -1,7 +1,10 @@
 .register-container {
     padding: 15px;
-    background-image: url("https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    background-size: 1260px 750px;
+    background-image: url("https://images.pexels.com/photos/7681670/pexels-photo-7681670.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
     color: white;
+    margin: 10px;
 }

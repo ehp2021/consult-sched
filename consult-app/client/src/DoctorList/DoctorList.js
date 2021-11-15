@@ -24,16 +24,16 @@ export default function DoctorList(props) {
         })
     }
     
-    function filterDoctors(arr, searchTerm) {
-
+    function filterDoctors(arr) {
+        console.log("hi")
+        console.log(arr[9]);
+        console.log(arr.doctor);
         //filter doctors based on input value??
-        return arr.filter((searchTerm)=> {
-            //filter has to have a RETURN
-            // if(arr.includes(searchTerm.toLowerCase())) {
-                return arr.map(doctor => {
-                    return <Doctor key={doctor} doctor={doctor} />
-                })
-            // }
+        return arr.filter(function (e) {
+                return arr.drug_list.includes(searchTerm.toLowerCase()) 
+                    ( 
+                        <Doctor key={arr.doctor.id} doctor={arr.doctor} />
+                    )
         })
     }
 
@@ -47,23 +47,8 @@ export default function DoctorList(props) {
                 />
                 <button id="search-button" onClick={filterDoctors} >Search</button>
             </div>
-            <div className="filtered-doctors"> 
-                {searchTerm.length > 5 ? filterDoctors(allDoctors) : showDoctors(allDoctors)}
-            </div>
-            
-
-            <div className="filtered-doctors">
-            {/* {filteredData.length !== 0 && (
-                <div className="dataResult">
-                {filteredData.slice(0, 15).map((value, key) => {
-                    return (
-                    <a className="dataItem" href={value.link} >
-                        <p>{value.title} </p>
-                    </a>
-                    );
-                })}
-                </div>
-            )} */}
+            <div className="filtered-doctors-list"> 
+                {searchTerm.length ? filterDoctors(allDoctors) : showDoctors(allDoctors)}
             </div>
         </div>
     )

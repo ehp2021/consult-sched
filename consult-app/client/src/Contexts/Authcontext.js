@@ -13,6 +13,13 @@ export function AuthProvider({children}) {
     
     function signup(email, password) {
         return auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential)=>{
+            // send verification mail.
+          userCredential.user.sendEmailVerification();
+          auth.signOut();
+          alert("Email sent");
+        })
+        .catch(alert);
     }
 
     function login(email, password) {

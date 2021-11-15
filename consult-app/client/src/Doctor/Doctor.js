@@ -11,6 +11,10 @@ export default function Doctor(props) {
 
   //https://ep-doctor-api.herokuapp.com/doctors
 
+  function buttonSched() {
+    alert(`You're scheduled to chat with Dr. ${last_name}.`)
+}
+
   const { name, last_name, photo, specialty_1, specialty_2, 
     medical_school, years_in_practice, practice_name,
     drug_list, availability} = props.doctor;
@@ -55,11 +59,11 @@ export default function Doctor(props) {
                     </TableHead>
                     <TableBody>
                       
-                      <TableCell align="center"><button>{availability[0].Monday ? availability[0].Monday : "Not Available"}</button></TableCell>                    
-                      <TableCell align="center"><button>{availability[0].Tuesday ? availability[0].Tuesday: "Not Available"}</button></TableCell>                    
-                      <TableCell align="center"><button>{availability[0].Wednesday ? availability[0].Wednesday : "Not Available"}</button></TableCell>
-                      <TableCell align="center"><button>{availability[0].Thursday ? availability[0].Thursday : "Not Available"}</button></TableCell>
-                      <TableCell align="center"><button>{availability[0].Friday ? availability[0].Friday : "Not Available"}</button></TableCell>  
+                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Monday ? availability[0].Monday : "Not Available"}</button></TableCell>                    
+                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Tuesday ? availability[0].Tuesday: "Not Available"}</button></TableCell>                    
+                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Wednesday ? availability[0].Wednesday : "Not Available"}</button></TableCell>
+                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Thursday ? availability[0].Thursday : "Not Available"}</button></TableCell>
+                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Friday ? availability[0].Friday : "Not Available"}</button></TableCell>  
 
                     </TableBody>
                   </Table> 

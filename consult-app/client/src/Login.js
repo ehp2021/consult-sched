@@ -18,7 +18,7 @@ export default function Login() {
             setError('')
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value);
-            navigate.push('/home')
+            navigate('/home')
         } catch {
             setError('Failed to login')
         }
@@ -47,7 +47,7 @@ export default function Login() {
                             type="submit">Log In</Button>
                     </Form>
                 </Card.Body>
-                <div className="register-container" style={{marginTop: "15px"}}>
+                <div className="login-register-container" style={{marginTop: "15px"}}>
                     Need an account? <Link to="/register" style={{color: "black"}}>Register Here</Link>
                 </div>
             </Card>

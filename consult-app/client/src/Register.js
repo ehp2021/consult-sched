@@ -24,7 +24,7 @@ export default function Register() {
             setError('');
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);
-            navigate.push('/home');
+            navigate('/home');
         } catch {
             setError('Failed to create an account')
         }
@@ -37,20 +37,20 @@ export default function Register() {
         <div className="register-container" >
             <Card> 
                 <Card.Body>
-                    <h2 className="register-container">Register For Free to Use CODA</h2>
+                    <h2 className="register-container-title">Register For Free to Use CODA</h2>
                     <h1></h1>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit} > 
                         <Form.Group id="email">
-                            <Form.Label>Email</Form.Label> 
+                            <Form.Label>Email </Form.Label> 
                             <Form.Control type="email" ref={emailRef} required />
                         </Form.Group>
                         <Form.Group id="password">
-                            <Form.Label>Password</Form.Label> 
+                            <Form.Label>Password </Form.Label> 
                             <Form.Control type="password" ref={passwordRef} required />
                         </Form.Group>
                         <Form.Group id="password-confirm">
-                            <Form.Label>Password Confirmation</Form.Label> 
+                            <Form.Label>Password Again </Form.Label> 
                             <Form.Control type="password" ref={passwordConfirmRef} required />
                         </Form.Group>
                         <Button style={{height: "30px", width: "80px"}} disabled={loading} className="register-button" type="submit">Register</Button>
