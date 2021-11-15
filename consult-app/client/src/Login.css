@@ -1,0 +1,10 @@
+.login-container {
+    padding: 25px;
+    background-image: url("https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+    margin: 10px;
+}

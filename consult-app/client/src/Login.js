@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react';
 import { Form, Button, Card, Alert} from 'react-bootstrap';
 import {useAuth} from './Contexts/Authcontext';
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom';
+import './Login.css';
 
 export default function Login() {
     const emailRef =useRef();
@@ -28,18 +29,18 @@ export default function Login() {
     }
 
     return (
-        <div style={{padding: "15px"}}>
+        <div className="login-container" >
             <Card> 
                 <Card.Body>
-                    <h2 className="login-container">Log In</h2>
+                    <h2 className="login-container-title">Log In</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit} > 
                         <Form.Group id="email">
-                            <Form.Label>Email</Form.Label> 
+                            <Form.Label>Email </Form.Label> 
                             <Form.Control type="email" ref={emailRef} required />
                         </Form.Group>
                         <Form.Group id="password">
-                            <Form.Label>Password</Form.Label> 
+                            <Form.Label>Password </Form.Label> 
                             <Form.Control type="password" ref={passwordRef} required />
                         </Form.Group>
                         
@@ -48,7 +49,7 @@ export default function Login() {
                     </Form>
                 </Card.Body>
                 <div className="login-register-container" style={{marginTop: "15px"}}>
-                    Need an account? <Link to="/register" style={{color: "black"}}>Register Here</Link>
+                    Need an account? <Link to="/register" style={{color: "white"}}>Register Here</Link>
                 </div>
             </Card>
         </div>

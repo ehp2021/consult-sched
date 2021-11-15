@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default function DoctorList(props) {
     const [allDoctors, setAllDoctors] = useState([]);
-    const [searchTerm, setSearchTerm] = useState([]);
+    const [searchTerm, setSearchTerm] = useState(""); 
     
     useEffect(()=> {
             axios.get('https://ep-doctor-api.herokuapp.com/doctors')
@@ -15,41 +15,49 @@ export default function DoctorList(props) {
     },[]);
 
     function showDoctors(arr) {
-        const firstNum = Math.floor(Math.random()*20);
-        const lastNum = firstNum + Math.floor(Math.random()*20);
-        return arr.slice(firstNum, lastNum).map(doctor => {
+        return arr.map(doctor => {
             return (
                 <Doctor key={doctor.id} doctor={doctor}/>
             )
         })
     }
-    
-    function filterDoctors(arr) {
-        console.log("hi")
-        console.log(arr[9]);
-        console.log(arr.doctor);
-        //filter doctors based on input value??
-        return arr.filter(function (e) {
-                return arr.drug_list.includes(searchTerm.toLowerCase()) 
-                    ( 
-                        <Doctor key={arr.doctor.id} doctor={arr.doctor} />
-                    )
-        })
+
+    function filterDoctors() {
+        const newArr = [...allDoctors];
+        const searchWord = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+        
+        const resultArr = [];
+        //filter doctors based on input value
+        for(let i=0;i<newArr.length; i++) {
+            if(newArr[i].drug_list.includes(searchWord)) {
+                resultArr.push(<Doctor key={newArr[i].id} doctor={newArr[i]} />)
+            }
+        }
+        return resultArr;
     }
 
     return(
         <div className="doctor-list" id="list">
-            <div className="search-box"> 
-            <h2>Search For A Doctor By Drug Expertise:</h2>
-                <input type="text" placeholder="Search for a drug" 
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-                />
-                <button id="search-button" onClick={filterDoctors} >Search</button>
-            </div>
-            <div className="filtered-doctors-list"> 
-                {searchTerm.length ? filterDoctors(allDoctors) : showDoctors(allDoctors)}
-            </div>
+            <form onSubmit={ e =>
+                {
+                    e.preventDefault();
+                    filterDoctors();
+                }}>
+                <div className="search-box"> 
+                    
+                    <h2>Search For A Doctor By Drug Expertise:</h2>
+                    
+                    <input type="text" placeholder="Search for a drug" 
+                        value={searchTerm}
+                        onChange={e => setSearchTerm(e.target.value)}
+                    />
+                    <button id="search-button">Search</button>
+                </div>
+
+                <div className="filtered-doctors-list"> 
+                    {searchTerm.length ? filterDoctors(allDoctors, searchTerm) : showDoctors(allDoctors)}
+                </div>
+            </form>
         </div>
     )
 

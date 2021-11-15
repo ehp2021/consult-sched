@@ -38,7 +38,7 @@ export default function Register() {
             <Card> 
                 <Card.Body>
                     <h2 className="register-container-title">Register For Free to Use CODA</h2>
-                    <h1></h1>
+                    <h3><i>Schedule consults with our expert physicians instantly on our platform</i></h3>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit} > 
                         <Form.Group id="email">
@@ -60,6 +60,7 @@ export default function Register() {
                         Already have an account? <Link to="/login" style={{color: "white"}}>Log In</Link>
                     </div>
             </Card>
+            
         </div>
     )
 }
