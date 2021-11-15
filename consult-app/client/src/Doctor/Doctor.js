@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
+
 export default function Doctor(props) {
 
   //https://ep-doctor-api.herokuapp.com/doctors
@@ -22,7 +23,7 @@ export default function Doctor(props) {
               </div>
       
               <div className="doctor-bio-left-info"> 
-                <h2>Dr. {name} {last_name}, MD</h2>
+                <div className="doctor-name-heading"><h2>Dr. {name} {last_name}, MD</h2></div>
                 <div><strong>Main Specialty:</strong> {specialty_1}</div>
                 <div><strong>Secondary Specialty:</strong> {specialty_2 ? specialty_2 : "Not Available"}</div>
                 <div><strong>Medical School:</strong> {medical_school}</div>
@@ -37,7 +38,7 @@ export default function Doctor(props) {
             </div>
 
             <div className="doctor-sched-right"> 
-                <h2>Dr. {last_name}'s Availability</h2>
+                <div className="doctor-name-heading2"><h2>Dr. {last_name}'s Availability</h2></div>
                 <div className="doctor-sched-times"> 
                 <TableContainer> 
                   <Table>

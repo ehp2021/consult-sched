@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Card, Button, Alert } from 'react-bootstrap';
 import {useAuth} from './Contexts/Authcontext';
 import { useNavigate } from 'react-router-dom';
-// import Doctor from './Doctor/Doctor';
+import Doctor from './Doctor/Doctor';
 
 export default function Profile() {
 
@@ -24,7 +24,7 @@ export default function Profile() {
 
 
     return (
-        <>
+        <div className="profile-container" style={{padding: "10px"}}>
             <Card>
                 <Card.Body>
                     <div className="profile-container">
@@ -32,12 +32,10 @@ export default function Profile() {
                         {error && <Alert variant="danger">{error}</Alert>}
                         <strong>Email:</strong> {currentUser.email}
                     </div>
+                    {}
 
                 </Card.Body>
             </Card>
-            <div className="logout-button">
-                <Button variant="link" onClick={handleLogout}>Log Out</Button>
-            </div>
-        </>
+        </div>
     )
 }

@@ -28,7 +28,7 @@ export default function Login() {
     }
 
     return (
-        <div>
+        <div style={{padding: "15px"}}>
             <Card> 
                 <Card.Body>
                     <h2 className="login-container">Log In</h2>
@@ -43,11 +43,12 @@ export default function Login() {
                             <Form.Control type="password" ref={passwordRef} required />
                         </Form.Group>
                         
-                        <Button disabled={loading} className="register-button" type="submit">Log In</Button>
+                        <Button style={{height: "30px", width: "80px"}} disabled={loading} className="register-button" 
+                            type="submit">Log In</Button>
                     </Form>
                 </Card.Body>
-                <div className="register-container">
-                    Need an account? <Link to="/register">Register</Link>
+                <div className="register-container" style={{marginTop: "15px"}}>
+                    Need an account? <Link to="/register" style={{color: "black"}}>Register Here</Link>
                 </div>
             </Card>
         </div>

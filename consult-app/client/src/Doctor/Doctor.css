@@ -20,6 +20,12 @@
     padding: 15px;
 }
 
+.doctor-name-heading {
+    text-decoration: underline black;
+    text-underline-position: under;
+}
+
+
 .doctor-bio-left-photo img {
     width: 250px;
     border-radius: 10px;
