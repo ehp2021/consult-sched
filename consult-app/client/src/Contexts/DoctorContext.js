@@ -18,7 +18,7 @@ export const DoctorContext = createContext(initialState);
 export const DoctorProvider = (props) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
-    //use local storage to store appointmentlist
+    //use local storage to store appointment list
     //need to json.stringify bc local storage has to be a string
     useEffect(() => {
         localStorage.setItem('appointmentList', JSON.stringify(state.appointmentList));
@@ -27,6 +27,7 @@ export const DoctorProvider = (props) => {
 
     //actions
     const addDoctorToApptList = doctor => {
+        console.log(doctor, "context");
         dispatch({type: "ADD_DOCTOR_TO_LIST", payload: doctor});
     }
 

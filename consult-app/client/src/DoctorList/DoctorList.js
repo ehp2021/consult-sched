@@ -6,24 +6,36 @@ import axios from 'axios';
 export default function DoctorList(props) {
     const [allDoctors, setAllDoctors] = useState([]);
     const [searchTerm, setSearchTerm] = useState(""); 
+    const [doctorsFetched, setDoctorsFetched] = useState(false);
+
+    async function getAll () {
+        const result = await axios.get('https://ep-doctor-api.herokuapp.com/doctors')
+        setAllDoctors(result);
+        setDoctorsFetched(true);
+    }
     
     useEffect(()=> {
-            axios.get('https://ep-doctor-api.herokuapp.com/doctors')
-            .then(response => {
-            setAllDoctors(response.data)
-        })
+        //     axios.get('https://ep-doctor-api.herokuapp.com/doctors')
+        //     .then(response => {
+        //         setAllDoctors(response.data);
+        // })
+        getAll()
     },[]);
+    // console.log(allDoctors);
 
     function showDoctors(arr) {
-        return arr.map(doctor => {
+        // console.log(arr.data, "array");
+        return arr.data.map(doctor => {
             return (
+                // console.log(doctor)
                 <Doctor key={doctor.id} doctor={doctor}/>
             )
         })
     }
 
     function filterDoctors() {
-        const newArr = [...allDoctors];
+        // console.log(typeof(allDoctors), typeof(allDoctors.data), allDoctors.data);
+        const newArr = [...allDoctors.data];
         const searchWord = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
         
         const resultArr = [];
@@ -55,10 +67,14 @@ export default function DoctorList(props) {
                     />
                     {/* <button id="search-button">Search</button> */}
                 </div>
-
-                <div className="filtered-doctors-list"> 
-                    {searchTerm ? filterDoctors(allDoctors, searchTerm) : showDoctors(allDoctors)}
-                </div>
+                        
+                { doctorsFetched 
+                ? 
+                    <div className="filtered-doctors-list"> 
+                        {searchTerm ? filterDoctors(allDoctors, searchTerm) : showDoctors(allDoctors)}
+                    </div>
+                : <h2>"Loading"</h2>
+                }
             </form>
         </div>
     )

@@ -17,3 +17,7 @@
 .appointment-booked {
     margin-top: 10px;
 }
+
+.appointment-doctor-info {
+    border: 1px solid black;
+}

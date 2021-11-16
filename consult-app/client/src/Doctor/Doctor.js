@@ -10,9 +10,12 @@ import TableRow from '@mui/material/TableRow';
 import {useAuth} from '../Contexts/Authcontext';
 
 export default function Doctor(props) {
+  // console.log(props, "props");
   const { name, last_name, photo, specialty_1, specialty_2, 
     medical_school, years_in_practice, practice_name,
     drug_list, availability} = props.doctor;
+
+    // console.log(availability[0].Monday, "monday avail");
   
     const { currentUser} = useAuth();
     const { addDoctorToApptList, appointmentList } = useContext(DoctorContext);
@@ -20,11 +23,6 @@ export default function Doctor(props) {
     //can't add a doctor appointment if already have one
     let storedDoctor = appointmentList.find(o => o.id === props.doctor.id);
     const appointmentListDisabled = storedDoctor ? true : false;
-  
-    // add to a list?
-  function buttonSched() {
-    alert(`You're scheduled to chat with Dr. ${last_name}. Look for a confirmation email to ${currentUser.email}`);
-  };
 
       return (
         <div className="doctor-card">
@@ -68,32 +66,73 @@ export default function Doctor(props) {
                     <TableBody>
                       
                       <TableCell align="center">
-                        <button className="monday-button" disabled={appointmentListDisabled} 
-                          onClick={() => addDoctorToApptList(props.doctor)}>
-                          {availability[0].Monday ? availability[0].Monday : "Not Available"}
+                        <button 
+                          className="monday-button" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                          >
+                          {(availability[0].Monday && availability[0].Monday[0]) ? availability[0].Monday[0][0] : "Not Available"}
+                        </button>
+                        <button 
+                          className="monday-button-2" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                          >
+                          {(availability[0].Monday && availability[0].Monday[1]) ? availability[0].Monday[1][0] : "Not Available"}
                         </button>
                       </TableCell>                    
                       <TableCell align="center">
-                        <button className="tuesday-button" disabled={appointmentListDisabled} 
-                          onClick={() => addDoctorToApptList(props.doctor)}>
-                          {availability[0].Tuesday ? availability[0].Tuesday: "Not Available"}
+                        <button 
+                          className="tuesday-button" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                        >
+                          {(availability[0].Tuesday && availability[0].Tuesday[0])  ? availability[0].Tuesday[0][0]: "Not Available"}
+                        </button>
+                        <button 
+                          className="tuesday-button-2" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                        >
+                          {(availability[0].Tuesday && availability[0].Tuesday[1]) ? availability[0].Tuesday[1][0]: "Not Available"}
                         </button>
                       </TableCell>                    
                       <TableCell align="center">
-                        <button className="wednesday-button" disabled={appointmentListDisabled} 
-                          onClick={() => addDoctorToApptList(props.doctor)}>
-                          {availability[0].Wednesday ? availability[0].Wednesday : "Not Available"}
+                        <button 
+                          className="wednesday-button" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                        >
+                          {(availability[0].Wednesday && availability[0].Wednesday[0]) ? availability[0].Wednesday[0][0] : "Not Available"}
+                        </button>
+                        <button 
+                          className="wednesday-button-2" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                        >
+                          {(availability[0].Wednesday && availability[0].Wednesday[1]) ? availability[0].Wednesday[1][0] : "Not Available"}
                         </button>
                       </TableCell>
                       <TableCell align="center">
-                        <button className="thursday-button" disabled={appointmentListDisabled} 
-                          onClick={() => addDoctorToApptList(props.doctor)}>
-                          {availability[0].Thursday ? availability[0].Thursday : "Not Available"}
+                        <button 
+                          className="thursday-button" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                        >
+                          {(availability[0].Thursday && availability[0].Thursday[0]) ? availability[0].Thursday[0][0] : "Not Available"}
+                        </button>
+                        <button 
+                          className="thursday-button-2" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                        >
+                          {(availability[0].Thursday && availability[0].Thursday[1]) ? availability[0].Thursday[1][0] : "Not Available"}
                         </button>
                       </TableCell>
                       <TableCell align="center">
-                        <button onClick={buttonSched}>
-                          {availability[0].Friday ? availability[0].Friday : "Not Available"}
+                        <button 
+                          className="friday-button" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                        >
+                          {(availability[0].Friday && availability[0].Friday[0]) ? availability[0].Friday[0][0] : "Not Available"}
+                        </button>
+                        <button 
+                          className="friday-button-2" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}
+                        >
+                          {(availability[0].Friday && availability[0].Friday[1]) ? availability[0].Friday[1][0] : "Not Available"}
                         </button>
                       </TableCell>  
 
