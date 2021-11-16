@@ -5,19 +5,22 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import {useAuth} from '../Contexts/Authcontext';
 
+// import { useNavigate } from 'react-router-dom';
 
 export default function Doctor(props) {
-
-  //https://ep-doctor-api.herokuapp.com/doctors
-
-  function buttonSched() {
-    alert(`You're scheduled to chat with Dr. ${last_name}.`)
-}
-
   const { name, last_name, photo, specialty_1, specialty_2, 
     medical_school, years_in_practice, practice_name,
     drug_list, availability} = props.doctor;
+  
+  const { currentUser} = useAuth();
+  // const navigate = useNavigate();
+
+  function buttonSched() {
+    alert(`You're scheduled to chat with Dr. ${last_name}. Look for a confirmation email to ${currentUser.email}`);
+    // navigate('/profile');
+  };
 
       return (
         <div className="doctor-card">

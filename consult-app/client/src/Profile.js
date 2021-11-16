@@ -2,21 +2,21 @@ import React, {useState} from 'react';
 import {Card, Alert } from 'react-bootstrap';
 import {useAuth} from './Contexts/Authcontext';
 import { useNavigate } from 'react-router-dom';
-// import Doctor from './Doctor/Doctor';
+import Doctor from './Doctor/Doctor';
 
-export default function Profile() {
+export default function Profile({doctor}) {
 
     const [error, setError]=useState("");
     const { currentUser, logout} = useAuth();
     const navigate = useNavigate();
-
+    
     async function handleLogout(e) {
         e.preventDefault();
         setError('')
 
         try {
             await logout();
-            navigate('/');
+            navigate('/login');
         } catch {
             setError('Failed to log out')
         }

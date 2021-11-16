@@ -47,15 +47,17 @@ export default function DoctorList(props) {
                     
                     <h2>Search For A Doctor By Drug Expertise:</h2>
                     
-                    <input type="text" placeholder="Search for a drug" 
+                    <input type="text" placeholder="Search for a drug..." 
                         value={searchTerm}
-                        onChange={e => setSearchTerm(e.target.value)}
+                        onChange={e => {
+                            setSearchTerm(e.target.value)
+                        }}
                     />
-                    <button id="search-button">Search</button>
+                    {/* <button id="search-button">Search</button> */}
                 </div>
 
                 <div className="filtered-doctors-list"> 
-                    {searchTerm.length ? filterDoctors(allDoctors, searchTerm) : showDoctors(allDoctors)}
+                    {searchTerm ? filterDoctors(allDoctors, searchTerm) : showDoctors(allDoctors)}
                 </div>
             </form>
         </div>
