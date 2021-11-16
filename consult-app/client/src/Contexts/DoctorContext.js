@@ -27,15 +27,19 @@ export const DoctorProvider = (props) => {
 
     //actions
     const addDoctorToApptList = doctor => {
-        console.log(doctor, "context");
         dispatch({type: "ADD_DOCTOR_TO_LIST", payload: doctor});
+    }
+
+    const removeDoctorFromApptList = (id) => {
+        dispatch({type: "REMOVE_DOCTOR_FROM_LIST", payload: id});
     }
 
     return (
         <DoctorContext.Provider value={{
                 appointmentList: state.appointmentList, 
                 appointmentDone: state.appointmentDone, 
-                addDoctorToApptList
+                addDoctorToApptList,
+                removeDoctorFromApptList
         }}> 
             {props.children}
         </DoctorContext.Provider>

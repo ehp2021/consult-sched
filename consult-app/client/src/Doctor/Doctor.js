@@ -10,13 +10,11 @@ import TableRow from '@mui/material/TableRow';
 import {useAuth} from '../Contexts/Authcontext';
 
 export default function Doctor(props) {
-  // console.log(props, "props");
+
   const { name, last_name, photo, specialty_1, specialty_2, 
     medical_school, years_in_practice, practice_name,
     drug_list, availability} = props.doctor;
 
-    // console.log(availability[0].Monday, "monday avail");
-  
     const { currentUser} = useAuth();
     const { addDoctorToApptList, appointmentList } = useContext(DoctorContext);
 

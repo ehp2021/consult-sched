@@ -9,7 +9,12 @@ export default (state, action) => {
                 ...state,
                 appointmentList: [action.payload, ...state.appointmentList]
             };
+        case "REMOVE_DOCTOR_FROM_LIST":
+            return {
+                ...state,
+                appointmentList: state.appointmentList.filter(doctor => doctor.id !== action.payload ),
+            }
         default: 
            return state;
     };
-};
+}; 

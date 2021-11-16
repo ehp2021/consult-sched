@@ -73,7 +73,7 @@ export default function DoctorList(props) {
                     <div className="filtered-doctors-list"> 
                         {searchTerm ? filterDoctors(allDoctors, searchTerm) : showDoctors(allDoctors)}
                     </div>
-                : <h2>"Loading"</h2>
+                : <h3>"Loading..."</h3>
                 }
             </form>
         </div>
