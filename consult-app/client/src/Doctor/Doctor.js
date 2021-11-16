@@ -1,3 +1,5 @@
+import React, {useContext} from 'react';
+import {DoctorContext} from '../Contexts/DoctorContext';
 import './Doctor.css';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,19 +9,21 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import {useAuth} from '../Contexts/Authcontext';
 
-// import { useNavigate } from 'react-router-dom';
-
 export default function Doctor(props) {
   const { name, last_name, photo, specialty_1, specialty_2, 
     medical_school, years_in_practice, practice_name,
     drug_list, availability} = props.doctor;
   
-  const { currentUser} = useAuth();
-  // const navigate = useNavigate();
+    const { currentUser} = useAuth();
+    const { addDoctorToApptList, appointmentList } = useContext(DoctorContext);
 
+    //can't add a doctor appointment if already have one
+    let storedDoctor = appointmentList.find(o => o.id === props.doctor.id);
+    const appointmentListDisabled = storedDoctor ? true : false;
+  
+    // add to a list?
   function buttonSched() {
     alert(`You're scheduled to chat with Dr. ${last_name}. Look for a confirmation email to ${currentUser.email}`);
-    // navigate('/profile');
   };
 
       return (
@@ -37,9 +41,9 @@ export default function Doctor(props) {
                 <div><strong>Years In Practice:</strong> {years_in_practice}</div>
                 <div><strong>Current Practice/Hospital:</strong> {practice_name}</div>
                 <div className="drug-list-title"><strong>Doctor is a high prescriber of and can discuss: </strong></div>
-                <div className="drug-list">
-                  <div>{drug_list.join(", ")}</div>
-                </div>
+                  <div className="drug-list">
+                    <div>{drug_list.join(", ")}</div>
+                  </div>
               </div>
                 
             </div>
@@ -47,6 +51,7 @@ export default function Doctor(props) {
             <div className="doctor-sched-right"> 
                 <div className="doctor-name-heading2"><h2>Dr. {last_name}'s Availability</h2></div>
                 <div className="doctor-sched-times"> 
+
                 <TableContainer> 
                   <Table>
                     <TableHead> 
@@ -62,11 +67,35 @@ export default function Doctor(props) {
                     </TableHead>
                     <TableBody>
                       
-                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Monday ? availability[0].Monday : "Not Available"}</button></TableCell>                    
-                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Tuesday ? availability[0].Tuesday: "Not Available"}</button></TableCell>                    
-                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Wednesday ? availability[0].Wednesday : "Not Available"}</button></TableCell>
-                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Thursday ? availability[0].Thursday : "Not Available"}</button></TableCell>
-                      <TableCell align="center"><button onClick={buttonSched}>{availability[0].Friday ? availability[0].Friday : "Not Available"}</button></TableCell>  
+                      <TableCell align="center">
+                        <button className="monday-button" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}>
+                          {availability[0].Monday ? availability[0].Monday : "Not Available"}
+                        </button>
+                      </TableCell>                    
+                      <TableCell align="center">
+                        <button className="tuesday-button" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}>
+                          {availability[0].Tuesday ? availability[0].Tuesday: "Not Available"}
+                        </button>
+                      </TableCell>                    
+                      <TableCell align="center">
+                        <button className="wednesday-button" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}>
+                          {availability[0].Wednesday ? availability[0].Wednesday : "Not Available"}
+                        </button>
+                      </TableCell>
+                      <TableCell align="center">
+                        <button className="thursday-button" disabled={appointmentListDisabled} 
+                          onClick={() => addDoctorToApptList(props.doctor)}>
+                          {availability[0].Thursday ? availability[0].Thursday : "Not Available"}
+                        </button>
+                      </TableCell>
+                      <TableCell align="center">
+                        <button onClick={buttonSched}>
+                          {availability[0].Friday ? availability[0].Friday : "Not Available"}
+                        </button>
+                      </TableCell>  
 
                     </TableBody>
                   </Table> 

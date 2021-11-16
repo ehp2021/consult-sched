@@ -1,0 +1,19 @@
+.appointment-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 8px 10px rgba(0,0,0,.15);
+    transition: all .3s ease;
+    text-align: center;
+}
+
+.appointment-booked {
+    margin-top: 10px;
+}

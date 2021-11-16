@@ -8,9 +8,11 @@ import Profile from './Profile';
 import {AuthProvider} from './Contexts/Authcontext';
 import PrivateRoute from './PrivateRoute';
 
+import {DoctorProvider} from './Contexts/DoctorContext';
+
 function App() {
   return (
-    
+    <DoctorProvider>
       <BrowserRouter>
         <div className="App">
           <Navbar />
@@ -30,7 +32,7 @@ function App() {
           </AuthProvider>
         </div>
       </BrowserRouter>
-    
+    </DoctorProvider>
   );
 }
 
